@@ -10,25 +10,19 @@
 $n = array();
 
 
+$n['PREG'] = '%require([ ]+)(.*)%i';
 
-    
+$n['COMMAND'] = 'require';
 
-    $n['PREG'] = '%require([ ]+)(.*)%i';
+$n['TEXT'] = 'Require php script';
 
-    $n['COMMAND'] = 'require';
+$n['DESCRIPTION'] = 'Require php script from file';
 
-    $n['TEXT'] = 'Require php script';
+$n['SECTION'] = 'script';
 
-    $n['DESCRIPTION'] = 'Require php script from file';
+$n['NO_BRACKETS'] = true;
 
-    $n['SECTION'] = 'script';
+$n['SORT'] = 199.20;
 
-    $n['NO_BRACKETS'] = true;
-    
-    $n['SORT'] = 199.20;
-
-    
-
-    
 
 return $n;

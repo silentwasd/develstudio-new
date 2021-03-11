@@ -1,5 +1,5 @@
 <?
 
 return array(
-             'INLINE'=>'true',
-             );
+    'INLINE' => 'true',
+);

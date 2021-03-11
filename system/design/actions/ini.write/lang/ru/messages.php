@@ -8,5 +8,4 @@ $m['gr_ini'] = 'Ини файлы';
 $m['To write %pr3% value to %pr2% key from %pr1% section'] = 'Записать %pr3% значение в %pr2% ключ из %pr1% секции';
 
 
-
 $GLOBALS['__M'] =& $m;

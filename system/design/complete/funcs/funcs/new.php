@@ -1,7 +1,7 @@
 <?
 
 return array(
-             'DESC'=>'Создание экземпляра класса',
-             'INLINE'=>'new <class_name>',
-             'CATEGORY'=>'ООП',
-             );
+    'DESC' => 'Создание экземпляра класса',
+    'INLINE' => 'new <class_name>',
+    'CATEGORY' => 'ООП',
+);

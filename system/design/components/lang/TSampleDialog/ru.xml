@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1251"?>
 <messages>
-  
+
     <i>
         <n>TSampleDialog_Caption</n>
         <v>Простой Диалог</v>
@@ -37,6 +37,6 @@
         <n>Button Font Color</n>
         <v>Цвет шрифта кнопок</v>
     </i>
-    
-    
+
+
 </messages>

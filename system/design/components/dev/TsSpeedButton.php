@@ -2,11 +2,11 @@
 
 $result = array();
 
-$result['GROUP']   = 'skins';
-$result['CLASS']   = basenameNoExt(__FILE__);
+$result['GROUP'] = 'skins';
+$result['CLASS'] = basenameNoExt(__FILE__);
 $result['CAPTION'] = t('TSpeedButton_Caption');
-$result['SORT']    = 2570;
-$result['NAME']    = 'sSPButton';
+$result['SORT'] = 2570;
+$result['NAME'] = 'sSPButton';
 $result['USE_SKIN'] = true;
 
 $result['W'] = 20;

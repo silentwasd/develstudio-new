@@ -3,9 +3,9 @@
 $result = array();
 
 $result[] = array(
-                  'CAPTION'=>t('On Click'),
-                  'EVENT'=>'onClick',
-                  'INFO'=>'%func%($self)',
-                  'ICON'=>'onclick',
-                  );
+    'CAPTION' => t('On Click'),
+    'EVENT' => 'onClick',
+    'INFO' => '%func%($self)',
+    'ICON' => 'onclick',
+);
 return $result;

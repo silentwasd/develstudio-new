@@ -1,8 +1,8 @@
 <?
 
 return array(
-             'DESC'=>'',
-             'INLINE'=>'global <variables>',
-             'SEEALSO'=>array(),
-             'CATEGORY'=>'Синтаксис',
-             );
+    'DESC' => '',
+    'INLINE' => 'global <variables>',
+    'SEEALSO' => array(),
+    'CATEGORY' => 'Синтаксис',
+);

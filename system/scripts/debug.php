@@ -1,8 +1,9 @@
 <?
 
 
-function childSendMessage($handle, $arr){
-    
+function childSendMessage($handle, $arr)
+{
+
     myDebug::onExcept($handle, $arr);
 }
 

@@ -2,11 +2,11 @@
 
 $result = array();
 
-$result['GROUP']   = 'additional';
-$result['CLASS']   = basenameNoExt(__FILE__);
+$result['GROUP'] = 'additional';
+$result['CLASS'] = basenameNoExt(__FILE__);
 $result['CAPTION'] = t('TGroupBox_Caption');
-$result['SORT']    = 430;
-$result['NAME']    = 'groupBox';
+$result['SORT'] = 430;
+$result['NAME'] = 'groupBox';
 $result['WINCONTROL'] = true;
 
 $result['W'] = 40;

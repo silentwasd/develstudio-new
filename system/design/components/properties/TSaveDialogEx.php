@@ -4,33 +4,33 @@ $result = array();
 
 
 $result[] = array(
-                  'CAPTION'=>t('File name'),
-                  'TYPE'=>'text',
-                  'PROP'=>'fileName',
-                  );
+    'CAPTION' => t('File name'),
+    'TYPE' => 'text',
+    'PROP' => 'fileName',
+);
 $result[] = array(
-                  'CAPTION'=>t('Filter'),
-                  'TYPE'=>'text',
-                  'PROP'=>'filter',
-                  );
+    'CAPTION' => t('Filter'),
+    'TYPE' => 'text',
+    'PROP' => 'filter',
+);
 $result[] = array(
-                  'CAPTION'=>t('Filter Index'),
-                  'TYPE'=>'number',
-                  'PROP'=>'filterIndex',
-                  );
+    'CAPTION' => t('Filter Index'),
+    'TYPE' => 'number',
+    'PROP' => 'filterIndex',
+);
 $result[] = array(
-                  'CAPTION'=>t('Initial Dir'),
-                  'TYPE'=>'text',
-                  'PROP'=>'initialDir',
-                  );
+    'CAPTION' => t('Initial Dir'),
+    'TYPE' => 'text',
+    'PROP' => 'initialDir',
+);
 $result[] = array(
-                  'CAPTION'=>t('Title'),
-                  'TYPE'=>'text',
-                  'PROP'=>'title',
-                  );
+    'CAPTION' => t('Title'),
+    'TYPE' => 'text',
+    'PROP' => 'title',
+);
 $result[] = array(
-                  'CAPTION'=>t('Small mode'),
-                  'TYPE'=>'check',
-                  'PROP'=>'smallMode',
-                  );
+    'CAPTION' => t('Small mode'),
+    'TYPE' => 'check',
+    'PROP' => 'smallMode',
+);
 return $result;

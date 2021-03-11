@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1251"?>
 <messages>
-  
+
     <i>
         <n>TGoogleTranslate_Caption</n>
         <v>Google Переводчик</v>
@@ -19,5 +19,5 @@
         <n>Charset</n>
         <v>Кодировка</v>
     </i>
-    
+
 </messages>

@@ -9,15 +9,15 @@
 
 $n = array();
 
-    
-    $n['PREG'] = '%\}([ ]*)%i';
-    $n['COMMAND'] = '}';
-    $n['TEXT'] = 'End.';
-    $n['DESCRIPTION'] = 'Close block code';
-    $n['SECTION'] = 'script';
-    $n['NO_TSZ'] = true;
-    $n['NO_BRACKETS'] = true;
-    $n['SORT'] = 199.60;
-    
-    
+
+$n['PREG'] = '%\}([ ]*)%i';
+$n['COMMAND'] = '}';
+$n['TEXT'] = 'End.';
+$n['DESCRIPTION'] = 'Close block code';
+$n['SECTION'] = 'script';
+$n['NO_TSZ'] = true;
+$n['NO_BRACKETS'] = true;
+$n['SORT'] = 199.60;
+
+
 return $n;

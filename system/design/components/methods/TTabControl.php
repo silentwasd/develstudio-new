@@ -4,75 +4,75 @@ $result = array();
 
 
 $result[] = array(
-                  'CAPTION'=>t('addPage'),
-                  'PROP'=>'addPage',
-                  'INLINE'=>'addPage ( string pageCaption )',
-                  );
+    'CAPTION' => t('addPage'),
+    'PROP' => 'addPage',
+    'INLINE' => 'addPage ( string pageCaption )',
+);
 
 $result[] = array(
-                  'CAPTION'=>t('indexOfTabXY'),
-                  'PROP'=>'indexOfTabXY',
-                  'INLINE'=>'int indexOfTabXY ( int x, int y )',
-                  );
+    'CAPTION' => t('indexOfTabXY'),
+    'PROP' => 'indexOfTabXY',
+    'INLINE' => 'int indexOfTabXY ( int x, int y )',
+);
 
 $result[] = array(
-                  'CAPTION'=>t('setFocus'),
-                  'PROP'=>'setFocus()',
-                  'INLINE'=>'setFocus ( void )',
-                  );
+    'CAPTION' => t('setFocus'),
+    'PROP' => 'setFocus()',
+    'INLINE' => 'setFocus ( void )',
+);
 
 $result[] = array(
-                  'CAPTION'=>t('Show'),
-                  'PROP'=>'show()',
-                  'INLINE'=>'show ( void )',
-                  );
+    'CAPTION' => t('Show'),
+    'PROP' => 'show()',
+    'INLINE' => 'show ( void )',
+);
 
 $result[] = array(
-                  'CAPTION'=>t('Hide'),
-                  'PROP'=>'hide()',
-                  'INLINE'=>'hide ( void )',
-                  );
+    'CAPTION' => t('Hide'),
+    'PROP' => 'hide()',
+    'INLINE' => 'hide ( void )',
+);
 
 
 $result[] = array(
-                  'CAPTION'=>t('To back'),
-                  'PROP'=>'toBack()',
-                  'INLINE'=>'toBack ( void )',
-                  );
+    'CAPTION' => t('To back'),
+    'PROP' => 'toBack()',
+    'INLINE' => 'toBack ( void )',
+);
 
 $result[] = array(
-                  'CAPTION'=>t('To front'),
-                  'PROP'=>'toFront()',
-                  'INLINE'=>'toFront ( void )',
-                  );
+    'CAPTION' => t('To front'),
+    'PROP' => 'toFront()',
+    'INLINE' => 'toFront ( void )',
+);
 
 $result[] = array(
-                  'CAPTION'=>t('Invalidate'),
-                  'PROP'=>'invalidate()',
-                  'INLINE'=>'invalidate ( void )',
-                  );
+    'CAPTION' => t('Invalidate'),
+    'PROP' => 'invalidate()',
+    'INLINE' => 'invalidate ( void )',
+);
 
 $result[] = array(
-                  'CAPTION'=>t('Repaint'),
-                  'PROP'=>'repaint()',
-                  'INLINE'=>'repaint ( void )',
-                  );
+    'CAPTION' => t('Repaint'),
+    'PROP' => 'repaint()',
+    'INLINE' => 'repaint ( void )',
+);
 
 $result[] = array(
-                  'CAPTION'=>t('Perform'),
-                  'PROP'=>'perform',
-                  'INLINE'=>'perform ( string msg, int hparam, int lparam )',
-                  );
+    'CAPTION' => t('Perform'),
+    'PROP' => 'perform',
+    'INLINE' => 'perform ( string msg, int hparam, int lparam )',
+);
 
 $result[] = array(
-                  'CAPTION'=>t('Create'),
-                  'PROP'=>'create',
-                  'INLINE'=>'create ( [object parent = activeForm] )',
-                  );
+    'CAPTION' => t('Create'),
+    'PROP' => 'create',
+    'INLINE' => 'create ( [object parent = activeForm] )',
+);
 
 $result[] = array(
-                  'CAPTION'=>t('Free'),
-                  'PROP'=>'free()',
-                  'INLINE'=>'free ( void )',
-                  );
+    'CAPTION' => t('Free'),
+    'PROP' => 'free()',
+    'INLINE' => 'free ( void )',
+);
 return $result;

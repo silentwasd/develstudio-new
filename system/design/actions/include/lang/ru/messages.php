@@ -1,7 +1,6 @@
 <?
 
 
-
 $m['Inclusions of files in a code of script PHP'] = 'Подключение файла в код сценария PHP';
 
 $m['Path to script PHP'] = 'Путь к скрипту PHP';

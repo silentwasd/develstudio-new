@@ -8,17 +8,17 @@
 */
 
 $n = array();
-        
-  $n['PREG'] = '%writeRegKey\((.*)\)[\;]?%i';   
- 
-  $n['COMMAND'] = 'writeRegKey';  
-  
-  $n['TEXT'] = 'Write Reg Key'; 
-   
-  $n['DESCRIPTION'] = 'To write down in the register a key'; 
-   
-  $n['SECTION'] = 'reg';
 
-  $n['SORT'] = 3020;
-       
+$n['PREG'] = '%writeRegKey\((.*)\)[\;]?%i';
+
+$n['COMMAND'] = 'writeRegKey';
+
+$n['TEXT'] = 'Write Reg Key';
+
+$n['DESCRIPTION'] = 'To write down in the register a key';
+
+$n['SECTION'] = 'reg';
+
+$n['SORT'] = 3020;
+
 return $n;

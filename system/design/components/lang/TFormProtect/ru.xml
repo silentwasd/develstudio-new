@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1251"?>
 <messages>
-  
+
     <i>
         <n>TFormProtect_Caption</n>
         <v>Защита Формы</v>
@@ -9,7 +9,7 @@
         <n>Auth Form</n>
         <v>Форма авторизации</v>
     </i>
-	<i>
+    <i>
         <n>Error Form</n>
         <v>Форма ошибки</v>
     </i>
@@ -28,10 +28,10 @@
     <i>
         <n>Trial Time (sec)</n>
         <v>Тестовый период (сек)</v>
-    </i> 
-	<i>
+    </i>
+    <i>
         <n>On Error</n>
         <v>Ошибка</v>
-    </i>    
-    
+    </i>
+
 </messages>

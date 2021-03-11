@@ -8,17 +8,17 @@
 */
 
 $n = array();
-        
-  $n['PREG'] = '%ShowForm\((.*)\)[\;]?%i';   
- 
-  $n['COMMAND'] = 'ShowForm';  
-  
-  $n['TEXT'] = 'Show Form'; 
-   
-  $n['DESCRIPTION'] = 'Show Form'; 
-   
-  $n['SECTION'] = 'app';
 
-  $n['SORT'] = 120;
-       
+$n['PREG'] = '%ShowForm\((.*)\)[\;]?%i';
+
+$n['COMMAND'] = 'ShowForm';
+
+$n['TEXT'] = 'Show Form';
+
+$n['DESCRIPTION'] = 'Show Form';
+
+$n['SECTION'] = 'app';
+
+$n['SORT'] = 120;
+
 return $n;

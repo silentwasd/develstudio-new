@@ -1,3 +1,3 @@
-<?$r = array(); 
-$r[] = array(             'TYPE'=>'CHECK',             'CAPTION'=>t('To block'),             );
+<? $r = array();
+$r[] = array('TYPE' => 'CHECK', 'CAPTION' => t('To block'),);
 return $r;

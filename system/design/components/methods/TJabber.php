@@ -3,46 +3,46 @@
 $result = array();
 
 $result[] = array(
-                  'CAPTION'=>'connect',
-                  'PROP'=>'connect()',
-                  'INLINE'=>'connect( void )',
-                  );
+    'CAPTION' => 'connect',
+    'PROP' => 'connect()',
+    'INLINE' => 'connect( void )',
+);
 
 $result[] = array(
-                  'CAPTION'=>'disconnect',
-                  'PROP'=>'disconnect()',
-                  'INLINE'=>'disconnect( void )',
-                  );
+    'CAPTION' => 'disconnect',
+    'PROP' => 'disconnect()',
+    'INLINE' => 'disconnect( void )',
+);
 
 $result[] = array(
-                  'CAPTION'=>'sendMessage',
-                  'PROP'=>'sendMessage',
-                  'INLINE'=>'sendMessage( string $toJid, string $content )',
-                  );
-				  
-$result[] = array(
-                  'CAPTION'=>'seStatus',
-                  'PROP'=>'seStatus',
-                  'INLINE'=>'sendStatus( string $status, string $show, int $priority )',
-                  );
+    'CAPTION' => 'sendMessage',
+    'PROP' => 'sendMessage',
+    'INLINE' => 'sendMessage( string $toJid, string $content )',
+);
 
 $result[] = array(
-                  'CAPTION'=>'getContacts',
-                  'PROP'=>'getContacts()',
-                  'INLINE'=>'getContacts( void )',
-                  );
+    'CAPTION' => 'seStatus',
+    'PROP' => 'seStatus',
+    'INLINE' => 'sendStatus( string $status, string $show, int $priority )',
+);
 
 $result[] = array(
-                  'CAPTION'=>'setContact',
-                  'PROP'=>'setContact',
-                  'INLINE'=>'setContact( string $jid, string $name, array $group )',
-                  );
+    'CAPTION' => 'getContacts',
+    'PROP' => 'getContacts()',
+    'INLINE' => 'getContacts( void )',
+);
 
 $result[] = array(
-                  'CAPTION'=>'removeContact',
-                  'PROP'=>'removeContact',
-                  'INLINE'=>'removeContact( string $jid )',
-                  );
+    'CAPTION' => 'setContact',
+    'PROP' => 'setContact',
+    'INLINE' => 'setContact( string $jid, string $name, array $group )',
+);
+
+$result[] = array(
+    'CAPTION' => 'removeContact',
+    'PROP' => 'removeContact',
+    'INLINE' => 'removeContact( string $jid )',
+);
 
 return $result;
 

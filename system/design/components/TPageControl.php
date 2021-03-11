@@ -2,11 +2,11 @@
 
 $result = array();
 
-$result['GROUP']   = 'additional';
-$result['CLASS']   = basenameNoExt(__FILE__);
+$result['GROUP'] = 'additional';
+$result['CLASS'] = basenameNoExt(__FILE__);
 $result['CAPTION'] = t('TPageControl_Caption');
-$result['SORT']    = 410;
-$result['NAME']    = 'pages';
+$result['SORT'] = 410;
+$result['NAME'] = 'pages';
 $result['WINCONTROL'] = true;
 
 $result['W'] = 35;

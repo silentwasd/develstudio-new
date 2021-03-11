@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1251"?>
 <messages>
-  
+
     <i>
         <n>TLinkLabel_Caption</n>
         <v>Ссылка</v>
@@ -25,5 +25,5 @@
         <n>Hover Style</n>
         <v>Стиль наведения</v>
     </i>
-    
+
 </messages>

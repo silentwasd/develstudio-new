@@ -1,7 +1,6 @@
 <?
 
 
-
 $m['Require php script from file'] = 'Подключить php скрипт из файла';
 
 $m['Require php script'] = 'Подключить php скрипт';

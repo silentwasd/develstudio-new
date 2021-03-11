@@ -1,3 +1,3 @@
 <?
 
-$GLOBALS['myDebugInspect'] = new myDebugInspect( c('fmInspect') );
+$GLOBALS['myDebugInspect'] = new myDebugInspect(c('fmInspect'));

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1251"?>
 <messages>
-  
+
     <i>
         <n>TSplitter_Caption</n>
         <v>Сплиттер</v>
@@ -26,5 +26,5 @@
         <n>Resize Style</n>
         <v>Стиль изменения размера</v>
     </i>
-    
+
 </messages>

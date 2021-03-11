@@ -4,8 +4,8 @@ $result = array();
 
 
 $result[] = array(
-                  'CAPTION'=>t('showAuth'),
-                  'PROP'=>'showAuth()',
-                  'INLINE'=>'showAuth ( void )',
-                  );
+    'CAPTION' => t('showAuth'),
+    'PROP' => 'showAuth()',
+    'INLINE' => 'showAuth ( void )',
+);
 return $result;

@@ -3,16 +3,16 @@
 $result = array();
 
 $result[] = array(
-                  'CAPTION'=>t('Menu Items'),
-                  'TYPE'=>'menu',
-                  'PROP'=>'data',
-                  );
+    'CAPTION' => t('Menu Items'),
+    'TYPE' => 'menu',
+    'PROP' => 'data',
+);
 
 $result[] = array(
-                  'CAPTION'=>t('Styled'),
-                  'TYPE'=>'check',
-                  'PROP'=>'styled',
-                  );
+    'CAPTION' => t('Styled'),
+    'TYPE' => 'check',
+    'PROP' => 'styled',
+);
 
 
 return $result;

@@ -1,19 +1,17 @@
 <?
 
 
-
 $r = array();
-
 
 
 $r[] = array(
 
-             'TYPE'=>'INPUT_DLG',
+    'TYPE' => 'INPUT_DLG',
 
-             'CAPTION'=>t('Path to script PHP'),
+    'CAPTION' => t('Path to script PHP'),
 
-             'USE_QUOTE'=>true,
+    'USE_QUOTE' => true,
 
-             );
+);
 
 return $r;

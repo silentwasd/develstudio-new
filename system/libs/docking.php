@@ -1,20 +1,23 @@
 <?
 
-class TDockTabSet extends TControl {
+class TDockTabSet extends TControl
+{
     public $class_name = __CLASS__;
 }
 
 
+class Docking
+{
 
-class Docking {
-    
-    static function saveFile($panel, $file){
-        
+    static function saveFile($panel, $file)
+    {
+
         $panel->dockSaveToFile($file);
     }
-    
-    static function loadFile($panel, $file){
-        
+
+    static function loadFile($panel, $file)
+    {
+
         $panel->dockLoadFromFile($file);
     }
 }

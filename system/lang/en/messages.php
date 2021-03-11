@@ -31,8 +31,8 @@ $m['TSpeedButton_Caption'] = 'Speed Button';
 $m['TBitBtn_Caption'] = 'Bit Button';
 $m['TLabel_Caption'] = 'Label';
 $m['TPanel_Caption'] = 'Panel';
-$m['TEdit_Caption']  = 'Edit';
-$m['TMemo_Caption']  = 'Memo';
+$m['TEdit_Caption'] = 'Edit';
+$m['TMemo_Caption'] = 'Memo';
 $m['TCombobox_Caption'] = 'Combobox';
 $m['TCheckBox_Caption'] = 'Checkbox';
 $m['TListbox_Caption'] = 'Listbox';
@@ -50,8 +50,8 @@ $m['TShape_Caption'] = 'Shape';
 $m['TMaskEdit_Caption'] = 'Mask Edit';
 $m['TImageList_Caption'] = 'Image List';
 $m['TPopupMenu_Caption'] = 'Popup Menu';
-$m['TMainMenu_Caption']  = 'Main Menu';
-$m['TMenuItem_Caption']  = 'Menu Item';
+$m['TMainMenu_Caption'] = 'Main Menu';
+$m['TMenuItem_Caption'] = 'Menu Item';
 $m['TProgressBar_Caption'] = 'Progressbar';
 $m['TStatusBar_Caption'] = 'Statusbar';
 $m['TSQUALLPlayer_Caption'] = 'SQUALL Player';
@@ -77,14 +77,13 @@ $m['TTreeView_Caption'] = 'Tree';
 $m['THTMLViewer_Caption'] = 'HTML Text';
 
 
-
 $m['components'] = 'Components';
 $m['page'] = 'Page';
 $m['properties'] = 'Properties';
 $m['events'] = 'Events';
 
 $m['caption'] = 'Caption';
-$m['text']    = 'Text';
+$m['text'] = 'Text';
 $m['visible'] = 'Visible';
 $m['font'] = 'Font';
 
@@ -98,7 +97,7 @@ $m['cancel'] = 'Cancel';
 
 $m['delete'] = 'Delete';
 $m['copy'] = 'Copy';
-$m['cut']  = 'Cut';
+$m['cut'] = 'Cut';
 $m['paste'] = 'Paste';
 $m['send_to_back'] = 'Send To Back';
 $m['send_to_front'] = 'Bring To Front';
@@ -114,21 +113,21 @@ $m['onmouseenter'] = 'Mouse Enter';
 $m['onmouseleave'] = 'Mouse Leave';
 
 $m['onexecute'] = 'Execute';
-$m['onstart']   = 'Start Timer';
-$m['ontimer']   = 'Timer';
-$m['onfinish']  = 'Finish Timer';
-$m['onchange']  = 'Change';
-$m['onkeydown']= 'Key Down';
-$m['onkeypress']= 'Key Press';
-$m['onkeyup']  = 'Key Up';
-$m['onclose']   = 'Close';
+$m['onstart'] = 'Start Timer';
+$m['ontimer'] = 'Timer';
+$m['onfinish'] = 'Finish Timer';
+$m['onchange'] = 'Change';
+$m['onkeydown'] = 'Key Down';
+$m['onkeypress'] = 'Key Press';
+$m['onkeyup'] = 'Key Up';
+$m['onclose'] = 'Close';
 $m['onclosequery'] = 'Close Query';
-$m['onactivate']  = 'Activate';
+$m['onactivate'] = 'Activate';
 $m['ondeactivate'] = 'Deactivate';
-$m['onshow']    = 'Show';
-$m['onhide']    = 'Hide';
-$m['onresize']  = 'Resize';
-$m['onpaint']   = 'Paint';
+$m['onshow'] = 'Show';
+$m['onhide'] = 'Hide';
+$m['onresize'] = 'Resize';
+$m['onpaint'] = 'Paint';
 $m['onstarttrack'] = 'Start Track';
 $m['onendtrack'] = 'End Track';
 $m['onscroll'] = 'Scroll';
@@ -139,10 +138,10 @@ $m['onstartchange'] = 'Before Change';
 
 $m['php_script_editor'] = 'PHP Code Editor';
 $m['script'] = 'Script';
-$m['run']    = 'Run';
-$m['restart']= 'Restart';
-$m['about']  = 'About';
-$m['Form name'] = 'Form name (only letters and "_")'; 
+$m['run'] = 'Run';
+$m['restart'] = 'Restart';
+$m['about'] = 'About';
+$m['Form name'] = 'Form name (only letters and "_")';
 
 
 $m['utils'] = 'Utils';
@@ -150,7 +149,7 @@ $m['utils'] = 'Utils';
 $m['main'] = 'Main';
 
 $m['p_Left'] = 'Left';
-$m['p_Top']  = 'Top';
+$m['p_Top'] = 'Top';
 
 $m['gr_objects'] = 'Objects';
 
