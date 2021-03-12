@@ -229,6 +229,9 @@ class myProject
         $lastFiles = array_values($lastFiles);
         file_put_contents(DS_USERDIR . 'last.lst', serialize($lastFiles));
 
+        /*
+         * Добавление пунктов "Последние проекты" и "Демо проекты" в меню "Файл".
+         */
         $objLast = c('fmMain->it_lastprojects');
 
         $objLast->clear();

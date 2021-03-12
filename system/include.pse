@@ -121,12 +121,33 @@ if (!defined('IS_APPLICATION_START')) {
 
         $GLOBALS['APPLICATION']->processMessages();
 
-
+        /*
+         * Привязка компонентов системы к глобальным переменным.
+         * Стилизация выпадающих меню.
+         * Загрузка списка последних проектов.
+         * Загрузка формы по умолчанию.
+         * Загрузка форм утилит (masters).
+         */
         include 'scripts/consts.php';
+
+        /*
+         * Загрузка изображений для компонентов ImageList.
+         */
         include 'scripts/images.php';
 
+        /*
+         * Связывание событий системных компонентов с различными методами.
+         */
         include 'scripts/actPanel.php';
+
+        /*
+         * Привязка информации о доп. библиотеках для PHP расширений (?).
+         */
         include 'scripts/modules.php';
+
+        /*
+         * Привязывание отладчика к ресиверу (?).
+         */
         include 'scripts/debug.php';
 
         c('fmLogoin->label4')->show();

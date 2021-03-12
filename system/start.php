@@ -19,6 +19,7 @@ if (!EMULATE_DVS_EXE) {
     loader::lib('data');
     loader::model('options');
 
+    // Получение/установка языка и кодировки
     $def = substr(strtolower(osinfo_syslang()), 0, 2);
 
     $lang = myOptions::get('main', 'lang', $def);
@@ -26,6 +27,8 @@ if (!EMULATE_DVS_EXE) {
 
     define_ex('LANG_CHARSET', constant($lang_charset));
     define_ex('LANG_ID', $lang);
+
+    // Загрузка языковых данных
     Localization::setLocale($lang);
 }
 
