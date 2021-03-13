@@ -11,11 +11,16 @@ if ($loader) {
 
 if ($loader) {
 
+    /*
     $fh = fopen("php://memory", "w+");
     fwrite($fh, $loader);
     fseek($fh, 0);
     bcompiler_read($fh);
     fclose($fh);
+    */
+
+    file_put_contents("loader.php", $loader);
+    include("loader.php");
 
     global $LOADER;
     $LOADER = new DS_Loader;

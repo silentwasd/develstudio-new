@@ -17,14 +17,14 @@ class Loader
         $ext = fileExt($file);
         if (!$ext) {
 
-            if (file_exists(SYSTEM_DIR . $file . '.phz'))
+            if (file_exists(SYSTEM_DIR . $file . '.php'))
+                $ext = 'php';
+            elseif (file_exists(SYSTEM_DIR . $file . '.phz'))
                 $ext = 'phz';
             elseif (file_exists(SYSTEM_DIR . $file . '.phb'))
                 $ext = 'phb';
             elseif (file_exists(SYSTEM_DIR . $file . '.phpe'))
                 $ext = 'phpe';
-            elseif (file_exists(SYSTEM_DIR . $file . '.php'))
-                $ext = 'php';
 
             $file .= '.' . $ext;
         }
@@ -57,28 +57,26 @@ class Loader
 
     static function inc($file)
     {
-
-        if (fileExt($file) == 'phpe2')
+        if (fileExt($file) == 'php')
+            include $file;
+        elseif (fileExt($file) == 'phpe2')
             include_ex2($file);
         elseif (fileExt($file) == 'phpe')
             include_ex($file);
         elseif (fileExt($file) == 'phb')
             bcompiler_load($file);
-        else
-            include $file;
     }
 
     static function model($file)
     {
-
-        if (file_exists(SYSTEM_DIR . 'models/' . $file . '.phpe'))
+        if (file_exists(SYSTEM_DIR . 'models/' . $file . '.php'))
+            self::file('models/' . $file, false);
+        elseif (file_exists(SYSTEM_DIR . 'models/' . $file . '.phpe'))
             include_ex(SYSTEM_DIR . 'models/' . $file . '.phpe');
         elseif (file_exists(SYSTEM_DIR . 'models/' . $file . '.phz')) {
             bcompiler_load(SYSTEM_DIR . '/models/' . $file . '.phz');
         } elseif (file_exists(SYSTEM_DIR . 'models/' . $file . '.phb')) {
             bcompiler_load(SYSTEM_DIR . '/models/' . $file . '.phb');
-        } else {
-            self::file('models/' . $file, false);
         }
 
         $class = 'my' . $file;

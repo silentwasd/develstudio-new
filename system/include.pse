@@ -198,6 +198,8 @@ if (!defined('IS_APPLICATION_START')) {
     }
 
     define('IS_APPLICATION_START', true);
+    $time = round(microtime(true) - $tt, 4);
+    myCompile::setStatus('Студия', 'Запуск за ' . $time . ' с');
 
     if (!EMULATE_DVS_EXE) {
 
