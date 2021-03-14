@@ -2,6 +2,10 @@
 
 $result = array();
 
+$result[] = array(
+    'PROP' => 'select',
+    'INLINE' => 'select ( int start, int length )'
+);
 
 $result[] = array(
     'CAPTION' => t('loadFromFile'),
