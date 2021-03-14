@@ -114,7 +114,7 @@ class complete_Props
             $text = str_replace('object ', '[$r]object[$b] ', $text);
 
             $arr['insert'][] = $add . $method['PROP'];
-            $arr['item'][] = myComplete::fromBB('->' . $text);
+            $arr['item'][] = myComplete::fromBB('->' . $text . ' - [$s]' . $method['CAPTION']);
         }
 
         return $arr;
