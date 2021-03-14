@@ -18,6 +18,7 @@ define_ex('DV_PREFIX', 'beta 2');
 if (!EMULATE_DVS_EXE) {
     loader::lib('data');
     loader::model('options');
+    loader::model('backup');
 
     // ѕолучение/установка €зыка и кодировки
     $def = substr(strtolower(osinfo_syslang()), 0, 2);

@@ -341,12 +341,18 @@ class myOptions
             myOptions::set('backup', 'active', c('fmOptions->backup_active')->checked);
 
             $dir = c('fmOptions->backup_dir')->text;
-            if (!eregi('$([.\-\_a-zа-яА-Я0-9]+)'))
+            if (!myBackup::isDirValid($dir))
                 $dir = 'backup';
 
             myOptions::set('backup', 'dir', $dir);
+
             myOptions::set('backup', 'interval', (int)c('fmOptions->backup_interval')->text);
-            myOptions::set('backup', 'count', (int)c('fmOptions->backup_count')->text);
+
+            $count = (int)c('fmOptions->backup_count')->text;
+            if ($count < 1)
+                $count = 1;
+
+            myOptions::set('backup', 'count', $count);
 
             myBackup::updateSettings();
 
@@ -365,71 +371,3 @@ class myOptions
         }
     }
 }
-
-class myBackup
-{
-
-    static $timer;
-    static $dir;
-    static $count;
-
-    static function updateSettings()
-    {
-
-        self::setActive(myOptions::get('backup', 'active', true));
-        self::setInterval(myOptions::get('backup', 'interval', 2));
-        self::$dir = myOptions::get('backup', 'dir', 'backup');
-        self::$count = myOptions::get('backup', 'count', 3);
-        if (myOptions::get('backup', 'active', true))
-            self::doInterval();
-    }
-
-    static function setActive($active)
-    {
-        self::$timer->enable = (bool)$active;
-    }
-
-    static function setInterval($min)
-    {
-
-        if ($min < 1)
-            $min = 1;
-
-        self::$timer->interval = $min * 60000;
-    }
-
-    function doInterval()
-    {
-
-        global $projectFile;
-        if (!eregi('$([.\-\_a-zа-яА-Я0-9]+)'))
-            self::$dir = 'backup';
-
-        $dir = dirname($projectFile) . '/' . self::$dir . '/';
-
-        if (!is_dir($dir))
-            mkdir($dir, 0777, true);
-
-        $file = basenameNoExt($projectFile) . date('(h.i d.m.Y)');
-        /*$from = 0;
-        while ( is_file( $dir . $file . $from . '.dvs' ) ) $from++;   */
-
-        $src = $dir . $file . $from . '.dvs';
-        myCompile::setStatus('Backup', t('Создание резервной копии - ') . '"' . self::$dir . '/' . $file . $from . '.dvs"');
-        myProject::saveAsDVS($src);
-
-        $check = $dir . $file . ($from - self::$count - 1) . '.dvs';
-
-        if (is_file($check)) {
-            unlink($check);
-        }
-    }
-
-    static function init()
-    {
-        self::$timer = Timer::setInterval('myBackup::doInterval', 60000 * 2);
-
-    }
-}
-
-myBackup::init();
