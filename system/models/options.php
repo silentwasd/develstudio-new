@@ -159,6 +159,7 @@ class myOptions
             myModules::inc();
 
             myProject::save();
+            myProject::initLastFiles($projectFile);
 
             /****** event *****/
             if (!CApi::doEvent('onProjectOptionsAfter', array())) return;

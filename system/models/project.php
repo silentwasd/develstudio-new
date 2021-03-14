@@ -588,8 +588,10 @@ class myProject
         file_put_contents(dirname($projectFile) . '/' . basenameNoExt($projectFile) . '.cfg', serialize($myProject->add_info));
         file_put_contents(dirname($projectFile) . '/' . basenameNoExt($projectFile) . '.events', serialize((array)eventEngine::$DATA));
 
-
         file_put_contents($projectFile, implode(_BR_, $_FORMS));
+
+        c('fmMain')->caption = 'DevelStudio ' . DV_YEAR . ' [' . basenameNoExt($projectFile) . ']';
+        c('fmMain->statusBar')->simpleText = replaceSr($projectFile);
 
         /*if (class_exists('myCompile'))
             myCompile::generateIncFile();*/
