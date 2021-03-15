@@ -60,7 +60,7 @@ class TEdit extends TControl {
         edit_selstart($this->self, (int)$start);
         edit_sellength($this->self, (int)$length);
     }
-	
+
 	public function undo(){ edit_undo($this->self); }
     
 	public function copyToClipboard(){ edit_copytoclipboard($this->self); }
@@ -210,29 +210,29 @@ class TListBox extends TControl {
 	public $class_name = __CLASS__;
 	protected $_items;
 	
-        function getFont($index){
-              $font = gui_listGetFont($this->self, $index);
-              if ( $font )
-                    return new TRealFont( $font );
-              else
-                    return null;
-        }
+    function getFont($index){
+          $font = gui_listGetFont($this->self, $index);
+          if ( $font )
+                return new TRealFont( $font );
+          else
+                return null;
+    }
 
-        function clearFont($index){
-              gui_listClearFont( $this->self, $index );
-        }
+    function clearFont($index){
+          gui_listClearFont( $this->self, $index );
+    }
 
-        function setItemColor($index, $color){
-              gui_listSetColor( $this->self, $index, $color );
-        }
+    function setItemColor($index, $color){
+          gui_listSetColor( $this->self, $index, $color );
+    }
 
-        function clearItemColor($index){
-              $this->setItemColor($index, clNone);
-        }
+    function clearItemColor($index){
+          $this->setItemColor($index, clNone);
+    }
 
-        function getItemColor($index){
-              return gui_listGetColor( $this->self, $index );
-        }
+    function getItemColor($index){
+          return gui_listGetColor( $this->self, $index );
+    }
 
 	function get_items(){
 		if (!isset($this->_items)){
