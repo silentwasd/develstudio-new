@@ -56,10 +56,29 @@ class myProperties
 
     static function getMethodsInfo($class)
     {
-
         global $componentMethods;
 
-        return (array)$componentMethods[$class];
+        $methods = (array)$componentMethods[$class];
+
+        if (isset($methods['parent'])) {
+            return self::injectParentMethods($methods);
+        }
+
+        return $methods;
+    }
+
+    /**
+     * Инъецировать методы из родителя.
+     * @param array $methodData
+     * @return array
+     */
+    private static function injectParentMethods($methodData)
+    {
+        if (!isset($methodData['parent']))
+            return $methodData;
+
+        $parentMethods = self::getMethodsInfo($methodData['parent']);
+        return array_merge($methodData['items'], $parentMethods);
     }
 
     static function fixSpliterMoved($self)
