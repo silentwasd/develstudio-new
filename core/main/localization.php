@@ -5,22 +5,37 @@ class Localization
 
     static function init()
     {
-
         $lang_dir = defined('USER_LANG_DIR') ? USER_LANG_DIR : 'lang';
         $lang_file = DOC_ROOT . '/' . $lang_dir . '/' . $GLOBALS['__LOCALE_LANG'] . '/messages.php';
 
-        if (isset($GLOBALS['__LANG_MESSAGES'])) unset($GLOBALS['__LANG_MESSAGES']);
+        if (isset($GLOBALS['__LANG_MESSAGES']))
+            unset($GLOBALS['__LANG_MESSAGES']);
+
+        if (isset($GLOBALS['__LANG_MAP']))
+            unset($GLOBALS['__LANG_MAP']);
+
+        $map = array(
+            'components' => array()
+        );
 
         $GLOBALS['__LANG_MESSAGES'] = array();
+        $GLOBALS['__LANG_MAP'] =& $map;
 
+        if (!file_exists($lang_file))
+            return;
 
-        if (file_exists($lang_file)) {
+        require_once $lang_file;
+        global $__M;
+        Localization::setMsgArr($__M);
+        unset ($__M);
+        setlocale(LC_ALL, strtolower($GLOBALS['__LOCALE_LANG']) . '_' . strtoupper($GLOBALS['__LOCALE_LANG']));
 
-            require_once $lang_file;
-            global $__M;
-            Localization::setMsgArr($__M);
-            unset ($__M);
-            setlocale(LC_ALL, strtolower($GLOBALS['__LOCALE_LANG']) . '_' . strtoupper($GLOBALS['__LOCALE_LANG']));
+        $localeDir = DOC_ROOT . '/' . $lang_dir . '/' . $GLOBALS['__LOCALE_LANG'];
+        foreach ($map as $section => &$data) {
+            $sectionFile = $localeDir . '/' . $section . '.php';
+            if (!file_exists($sectionFile))
+                continue;
+            $data = include_once($sectionFile);
         }
     }
 
@@ -96,6 +111,15 @@ class Localization
             if ($s1) return $GLOBALS['__LANG_MESSAGES'][$name];
             if ($s2) return $GLOBALS['__LANG_MESSAGES'][$name . '.'] . '.';
         }
+    }
+
+    /**
+     * ѕолучить €зыковую карту.
+     * @return array|null
+     */
+    static function getMap()
+    {
+        return $GLOBALS['__LANG_MAP'] ? $GLOBALS['__LANG_MAP'] : null;
     }
 
     static function setLocale($lang = 'ru')
@@ -261,4 +285,47 @@ function tr($text)
     $params = array_merge($params, func_get_args());
 
     return call_user_func_array('t', $params);
+}
+
+/**
+ * ѕеревод с использованием €зыковой карты.
+ * @param string $path ѕуть к значению с разделением через точку (например: components.methods.loadFromFile).
+ * @return string|null
+ */
+function tm($path)
+{
+    $map = Localization::getMap();
+    if (!$map)
+        return null;
+
+    $parts = explode('.', $path);
+    $cur = null;
+    foreach ($parts as $part) {
+        if (!$cur) {
+            if (!isset($map[$part]))
+                return null;
+
+            $cur = $map[$part];
+            continue;
+        }
+
+        if (!isset($cur[$part]))
+            break;
+
+        $cur = $cur[$part];
+    }
+
+    if (!$cur || is_array($cur))
+        $cur = $path;
+
+    if (func_num_args() == 1) {
+        return $cur;
+    }
+
+    $arg = array();
+    for ($i = 1; $i < func_num_args(); $i++) {
+        $arg[] = func_get_arg($i);
+    }
+
+    return vsprintf($cur, $arg);
 }
