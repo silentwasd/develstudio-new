@@ -54,6 +54,12 @@ class TEdit extends TControl {
 	function set_selLength($v){ edit_sellength($this->self, (int)$v); }
 	
 	function selectAll(){ edit_selectall($this->self); }
+
+    function select($start, $length)
+    {
+        edit_selstart($this->self, (int)$start);
+        edit_sellength($this->self, (int)$length);
+    }
 	
 	public function undo(){ edit_undo($this->self); }
     
