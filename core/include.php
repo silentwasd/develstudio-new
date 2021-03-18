@@ -90,9 +90,16 @@ include_lib('main','graphics/TBitmap');
 include_lib('main','graphics/TIcon');
 include_lib('main','graphics/TPicture');
 
+/* DFM Reader */
 include_lib('main','dfmreader');
 
+/* Forms */
 include_lib('main','forms');
+include_lib('main','forms/TForm');
+include_lib('main','forms/TDockableForm');
+include_lib('main','forms/TScreen');
+include_lib('main','forms/TScreenEx');
+include_lib('main','forms/TApplication');
 
 /* Dialogs */
 include_lib('main','dialogs');
