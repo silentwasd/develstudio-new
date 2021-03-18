@@ -1,0 +1,7 @@
+<?
+
+
+class TChromiumOptions extends TControl
+{
+
+}

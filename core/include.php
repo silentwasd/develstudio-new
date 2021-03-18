@@ -195,7 +195,12 @@ include_lib('main','menus/TPopupMenu');
 include_lib('main','imagelist');
 include_lib('main','imagelist/TImageList');
 
+/* Web */
 include_lib('main','web');
+include_lib('main','web/TChromiumOptions');
+include_lib('main','web/TChromium');
+include_lib('main','web/TWebBrowser');
+
 include_lib('main','grids');
 include_lib('main','registry');
 
