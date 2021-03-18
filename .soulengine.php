@@ -61,9 +61,19 @@ function gui_propExists($id, $name) {}
  */
 function gui_is($id, $type) {}
 
+
 /**
  * Получить идентификатор владельца.
  * @param int $id Идентификатор объекта.
  * @return int Идентификатор владельца. Если владельца нет, возвращается ноль.
  */
 function gui_owner($id) {}
+
+
+/**
+ * Установить или получить дополнительную информацию объекта.
+ * @param int $id Идентификатор объекта.
+ * @param string|null $value Значение.
+ * @return void|string Возвращает строку, если $value = null, иначе ничего.
+ */
+function control_helpkeyword($id, $value) {}
