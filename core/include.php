@@ -56,7 +56,16 @@ include_lib('debug','errors');
 include_lib('debug','bytecode');
 include_lib('debug','debugclass');
 include_lib('','config');
+
+/* Objects */
 include_lib('main','objects');
+include_lib('main','objects/_Object');
+include_lib('main','objects/TObject');
+include_lib('main','objects/TComponent');
+include_lib('main','objects/TFont');
+include_lib('main','objects/TRealFont');
+include_lib('main','objects/TControl');
+
 include_lib('main','classes');
 include_lib('main','messages');
 include_lib('main','graphics');
