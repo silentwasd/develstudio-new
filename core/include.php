@@ -73,7 +73,11 @@ include_lib('main','classes/TStream');
 include_lib('main','classes/TMemoryStream');
 include_lib('main','classes/TFileStream');
 
+/* Messages */
 include_lib('main','messages');
+include_lib('main','messages/Receiver');
+include_lib('main','messages/TDropFilesTarget');
+
 include_lib('main','graphics');
 include_lib('main','dfmreader');
 include_lib('main','forms');
