@@ -140,7 +140,15 @@ include_lib('main','timing/Timer');
 include_lib('main','threading');
 include_lib('main','threading/TThread');
 
+/* Buttons */
 include_lib('main','buttons');
+include_lib('main','buttons/TButton');
+include_lib('main','buttons/TBitBtn');
+include_lib('main','buttons/TSpeedButton');
+include_lib('main','buttons/TPNGGlyph');
+include_lib('main','buttons/TPNGSpeedButton');
+include_lib('main','buttons/TPNGBitBtn');
+
 include_lib('main','additional');
 include_lib('main','menus');
 include_lib('main','imagelist');
