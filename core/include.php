@@ -91,8 +91,22 @@ include_lib('main','graphics/TIcon');
 include_lib('main','graphics/TPicture');
 
 include_lib('main','dfmreader');
+
 include_lib('main','forms');
+
+/* Dialogs */
 include_lib('main','dialogs');
+include_lib('main','dialogs/TCommonDialog');
+include_lib('main','dialogs/TOpenDialog');
+include_lib('main','dialogs/TSaveDialog');
+include_lib('main','dialogs/TFontDialog');
+include_lib('main','dialogs/TColorDialog');
+include_lib('main','dialogs/TDMSColorDialog');
+include_lib('main','dialogs/TPrintDialog');
+include_lib('main','dialogs/TPageSetupDialog');
+include_lib('main','dialogs/TFindDialog');
+include_lib('main','dialogs/TReplaceDialog');
+
 include_lib('main','standart');
 include_lib('main','timing');
 include_lib('main','threading');
