@@ -1,6 +1,7 @@
 <?
 
 
-class DebugClassException extends Exception {
+class DebugClassException extends Exception
+{
 
 }
