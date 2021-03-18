@@ -1,0 +1,6 @@
+<?
+
+
+class DebugClassException extends Exception {
+
+}

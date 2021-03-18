@@ -57,9 +57,13 @@ include_lib('main','constant/myVars');
 include_lib('main','constant/TConstantList');
 include_lib('main','constant');
 
+/* Debug */
 include_lib('debug','errors');
-include_lib('debug','bytecode');
-include_lib('debug','debugclass');
+include_lib('debug','ByteCode');
+include_lib('debug','DebugClassException');
+include_lib('debug','DebugClass');
+include_lib('debug','ThreadDebugClass');
+
 include_lib('','config');
 
 /* Objects */
