@@ -66,7 +66,13 @@ include_lib('main','objects/TFont');
 include_lib('main','objects/TRealFont');
 include_lib('main','objects/TControl');
 
+/* Classes */
 include_lib('main','classes');
+include_lib('main','classes/TStrings');
+include_lib('main','classes/TStream');
+include_lib('main','classes/TMemoryStream');
+include_lib('main','classes/TFileStream');
+
 include_lib('main','messages');
 include_lib('main','graphics');
 include_lib('main','dfmreader');
