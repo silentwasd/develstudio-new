@@ -78,7 +78,18 @@ include_lib('main','messages');
 include_lib('main','messages/Receiver');
 include_lib('main','messages/TDropFilesTarget');
 
+/* Graphics */
 include_lib('main','graphics');
+include_lib('main','graphics/TPoint');
+include_lib('main','graphics/TRect');
+include_lib('main','graphics/TPen');
+include_lib('main','graphics/TCanvas');
+include_lib('main','graphics/TCanvasFont');
+include_lib('main','graphics/TControlCanvas');
+include_lib('main','graphics/TBitmap');
+include_lib('main','graphics/TIcon');
+include_lib('main','graphics/TPicture');
+
 include_lib('main','dfmreader');
 include_lib('main','forms');
 include_lib('main','dialogs');
