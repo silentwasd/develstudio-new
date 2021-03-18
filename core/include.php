@@ -213,7 +213,10 @@ include_lib('main','registry/TRegistry');
 include_lib('main','keyboard');
 include_lib('main','keyboard/HotKey');
 
+/* Localization */
 include_lib('main','localization');
+include_lib('main','localization/Localization');
+
 include_lib('main','osapi');
 include_lib('main','utils');
 include_lib('main','skins');
