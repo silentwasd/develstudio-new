@@ -51,7 +51,12 @@ $_SERVER['DOCUMENT_ROOT'] = DOC_ROOT;
 $_SERVER['MODULE_DIR'] = MODULE_DIR;
 $_SERVER['ENGINE_DIR'] = ENGINE_DIR;
 /* %START_MODULES% */
+
+/* Constant */
+include_lib('main','constant/myVars');
+include_lib('main','constant/TConstantList');
 include_lib('main','constant');
+
 include_lib('debug','errors');
 include_lib('debug','bytecode');
 include_lib('debug','debugclass');
