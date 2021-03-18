@@ -209,7 +209,10 @@ include_lib('main','grids/TStringGrid');
 include_lib('main','registry');
 include_lib('main','registry/TRegistry');
 
+/* Keyboard */
 include_lib('main','keyboard');
+include_lib('main','keyboard/HotKey');
+
 include_lib('main','localization');
 include_lib('main','osapi');
 include_lib('main','utils');
