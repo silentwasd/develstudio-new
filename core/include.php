@@ -256,9 +256,34 @@ include_lib('files','ini/TIniFile');
 include_lib('files','ini/TConfigIni');
 include_lib('files','TIniFileEx');
 
-include_lib('design','sizecontrol');
-include_lib('design','propcomponents');
-include_lib('design','dfmparser');
+/* Size control */
+include_lib('design','sizecontrol/TSizeCtrl');
+
+/* Prop components */
+include_lib('design','propcomponents/TEditBtn');
+include_lib('design','propcomponents/TEditDialog');
+include_lib('design','propcomponents/TEditOpenDialog');
+include_lib('design','propcomponents/TEditSaveDialog');
+include_lib('design','propcomponents/TEditFontDialog');
+include_lib('design','propcomponents/TEditColorDialog');
+include_lib('design','propcomponents/TEditDMSColorDialog');
+
+/* DFM Parser */
+include_lib('design','TDFMParser');
+
+/* Syntax edit */
 include_lib('design','synedit');
+include_lib('design','synedit/TSynEdit');
+include_lib('design','synedit/TSynCompletionProposal');
+include_lib('design','synedit/TSynHighlighterAttributes');
+include_lib('design','synedit/TSynCustomHighlighter');
+include_lib('design','synedit/TSynPHPSyn');
+include_lib('design','synedit/TSynGeneralSyn');
+include_lib('design','synedit/TSynCppSyn');
+include_lib('design','synedit/TSynCssSyn');
+include_lib('design','synedit/TSynHTMLSyn');
+include_lib('design','synedit/TSynSQLSyn');
+include_lib('design','synedit/TSynJScriptSyn');
+include_lib('design','synedit/TSynXMLSyn');
 
 include_lib('','inits');
