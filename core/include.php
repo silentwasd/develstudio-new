@@ -226,7 +226,17 @@ include_lib('main','utils');
 include_lib('main','utils/group');
 include_lib('main','utils/TGroup');
 
+/* Skins */
 include_lib('main','skins');
+include_lib('main','skins/TsSkinManager');
+include_lib('main','skins/TsSkinProvider');
+include_lib('main','skins/TsLabel');
+include_lib('main','skins/TsLabelFX');
+include_lib('main','skins/TsBitBtn');
+include_lib('main','skins/TsSpeedButton');
+include_lib('main','skins/TsProgressBar');
+include_lib('main','skins/TsTrackBar');
+include_lib('main','skins/TsBevel');
 
 include_lib('files','file');
 include_lib('files','ini');
