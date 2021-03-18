@@ -205,7 +205,9 @@ include_lib('main','web/TWebBrowser');
 include_lib('main','grids');
 include_lib('main','grids/TStringGrid');
 
+/* Registry */
 include_lib('main','registry');
+include_lib('main','registry/TRegistry');
 
 include_lib('main','keyboard');
 include_lib('main','localization');
