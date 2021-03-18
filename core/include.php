@@ -183,7 +183,14 @@ include_lib('main','additional/TDateTimePicker');
 include_lib('main','additional/TTreeView');
 include_lib('main','additional/TTreeNode');
 
+/* Menus */
 include_lib('main','menus');
+include_lib('main','menus/styleMenu');
+include_lib('main','menus/TMainMenu');
+include_lib('main','menus/TMenuItem');
+include_lib('main','menus/TMenu');
+include_lib('main','menus/TPopupMenu');
+
 include_lib('main','imagelist');
 include_lib('main','web');
 include_lib('main','grids');
