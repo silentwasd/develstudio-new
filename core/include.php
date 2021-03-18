@@ -169,7 +169,6 @@ include_lib('main','additional/TValueListEditor');
 include_lib('main','additional/TLabeledEdit');
 include_lib('main','additional/TColorBox');
 include_lib('main','additional/TStatusBar');
-include_lib('main','additional/TControlBar');
 include_lib('main','additional/TColorListBox');
 include_lib('main','additional/TTabSet');
 include_lib('main','additional/TTabControl');
