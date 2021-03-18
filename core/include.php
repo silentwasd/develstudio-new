@@ -191,7 +191,10 @@ include_lib('main','menus/TMenuItem');
 include_lib('main','menus/TMenu');
 include_lib('main','menus/TPopupMenu');
 
+/* Image list */
 include_lib('main','imagelist');
+include_lib('main','imagelist/TImageList');
+
 include_lib('main','web');
 include_lib('main','grids');
 include_lib('main','registry');
