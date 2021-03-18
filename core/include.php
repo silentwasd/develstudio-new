@@ -64,7 +64,7 @@ include_lib('debug','DebugClassException');
 include_lib('debug','DebugClass');
 include_lib('debug','ThreadDebugClass');
 
-include_lib('','config');
+include_lib('','TConfig');
 
 /* Objects */
 include_lib('main','objects');

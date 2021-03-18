@@ -14,18 +14,21 @@
 */
 
 
-class TConfig{
-    
+class TConfig
+{
+
     public $class_name = __CLASS__;
     protected $_data;
-    
-    
-    public function __construct(array $data = array()){
+
+
+    public function __construct(array $data = array())
+    {
         $this->_data = array();
-        $this->setArray($data);   
+        $this->setArray($data);
     }
-    
-    public function setArray(array $data){
+
+    public function setArray(array $data)
+    {
         foreach ($data as $key => $value) {
             if (is_array($value)) {
                 $this->_data[$key] = new self($value);
@@ -34,28 +37,31 @@ class TConfig{
             }
         }
     }
-    
-    public function get($name, $default = null){
-        $result = $default;
-        
-        if (array_key_exists($name, $this->_data)) {
-            $result = $this->_data[$name];
-        }
-        return $result;
-    }
-    
-    public function __get($name){
+
+    public function __get($name)
+    {
         return $this->get($name);
     }
-    
-    public function __set($name,$value){
+
+    public function __set($name, $value)
+    {
         if (is_array($value)) {
             $this->_data[$name] = new self($value);
         } else {
             $this->_data[$name] = $value;
         }
     }
-    
+
+    public function get($name, $default = null)
+    {
+        $result = $default;
+
+        if (array_key_exists($name, $this->_data)) {
+            $result = $this->_data[$name];
+        }
+        return $result;
+    }
+
     public function toArray()
     {
         $array = array();
@@ -68,25 +74,30 @@ class TConfig{
         }
         return $array;
     }
-    
+
     public function __isset($name)
     {
         return isset($this->_data[$name]);
     }
-    
+
     public function __clone()
     {
-      $array = array();
-      foreach ($this->_data as $key => $value) {
-          if ($value instanceof TConfig) {
-              $array[$key] = clone $value;
-          } else {
-              $array[$key] = $value;
-          }
-      }
-      $this->_data = $array;
+        $array = array();
+        foreach ($this->_data as $key => $value) {
+            if ($value instanceof TConfig) {
+                $array[$key] = clone $value;
+            } else {
+                $array[$key] = $value;
+            }
+        }
+        $this->_data = $array;
     }
-    
-    public function loadFromFile($filename){}
-    public function saveToFile($filename){}
+
+    public function loadFromFile($filename)
+    {
+    }
+
+    public function saveToFile($filename)
+    {
+    }
 }
