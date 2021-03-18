@@ -1,0 +1,4 @@
+<?
+
+
+class TGroup extends group { }

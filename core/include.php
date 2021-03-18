@@ -221,7 +221,11 @@ include_lib('main','localization/Localization');
 include_lib('main','osapi');
 include_lib('main','osapi/DynLib');
 
+/* Utils */
 include_lib('main','utils');
+include_lib('main','utils/group');
+include_lib('main','utils/TGroup');
+
 include_lib('main','skins');
 
 include_lib('files','file');
