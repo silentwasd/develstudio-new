@@ -1,7 +1,8 @@
 <?
 
 
-class TTimerEx extends TPanel{
+class TTimerEx extends TPanel
+{
 
     public $class_name_ex = __CLASS__;
     #public $time_out = true;
@@ -13,56 +14,58 @@ class TTimerEx extends TPanel{
 
     #event onTimer
 
-    static function doTimer($self){
+    public function __construct($onwer = nil, $init = true, $self = nil)
+    {
+        parent::__construct($onwer, $init, $self);
 
-        $self = gui_owner($self);
-        $props = TComponent::__getPropExArray($self);
-
-        // надо сразу избавляться от продолжения таймера, иначе баг =)
-        if ($props['time_out']){
-            $obj = _c($self);
-            $obj->timer->enabled = false;
-        }
-
-        if ($props['ontimer']){
-            eval($props['ontimer'] . '('.$self.');');
-        }
-
-        if ($props['func_name']){
-
-
-            if ($props['checkresult']){
-                eval('$result = '.$props['func_name'] . ';');
-                if ( $result===true ){
-
-                    $obj = _c($self);
-                    //$obj->timer->enabled = false;
-                    $obj->free();
-                }
-            }
-            else
-                eval($props['func_name'] . ';');
-        }
-
-        if ($props['freeonend']){
-
-            $obj->free();
-        }
-    }
-
-    public function __construct($onwer=nil, $init=true, $self=nil){
-        parent::__construct($onwer,$init,$self);
-
-        if ($init){
+        if ($init) {
             $this->timer->enabled = false;
         }
 
         $this->__setAllPropEx();
     }
 
-    function get_timer(){
+    static function doTimer($self)
+    {
 
-        if (!$this->timer_self){
+        $self = gui_owner($self);
+        $props = TComponent::__getPropExArray($self);
+
+        // надо сразу избавляться от продолжения таймера, иначе баг =)
+        if ($props['time_out']) {
+            $obj = _c($self);
+            $obj->timer->enabled = false;
+        }
+
+        if ($props['ontimer']) {
+            eval($props['ontimer'] . '(' . $self . ');');
+        }
+
+        if ($props['func_name']) {
+
+
+            if ($props['checkresult']) {
+                eval('$result = ' . $props['func_name'] . ';');
+                if ($result === true) {
+
+                    $obj = _c($self);
+                    //$obj->timer->enabled = false;
+                    $obj->free();
+                }
+            } else
+                eval($props['func_name'] . ';');
+        }
+
+        if ($props['freeonend']) {
+
+            $obj->free();
+        }
+    }
+
+    function get_timer()
+    {
+
+        if (!$this->timer_self) {
             $this->_timer = new TTimer($this);
             $this->_timer->name = 'timer';
             $this->_timer->onTimer = 'TTimerEx::doTimer';
@@ -74,50 +77,64 @@ class TTimerEx extends TPanel{
         return $this->_timer;
     }
 
-    public function set_enable($v){
+    public function set_enable($v)
+    {
         $this->timer->enabled = $v;
     }
 
-    public function get_enable(){
+    public function get_enable()
+    {
         return $this->timer->enabled;
     }
 
-    public function set_enabled($v){
+    public function set_enabled($v)
+    {
         $this->enable = $v;
     }
 
-    public function get_enabled(){
+    public function get_enabled()
+    {
         return $this->enable;
     }
 
-    public function set_interval($v){
+    public function set_interval($v)
+    {
         $this->timer->interval = $v;
     }
 
-    public function get_interval(){
+    public function get_interval()
+    {
         return $this->timer->interval;
     }
 
-    public function get_repeat(){
+    public function get_repeat()
+    {
         return !$this->time_out;
     }
 
-    public function set_repeat($v){
+    public function set_repeat($v)
+    {
         $this->time_out = !$v;
     }
 
-    public function start(){
-        $this->enabled = true;
-
-    }
-
-    public function stop(){
+    public function stop()
+    {
         $this->enabled = false;
     }
 
-    public function pause(){
+    public function pause()
+    {
         $this->enabled = !$this->enabled;
     }
 
-    public function go(){$this->start();}
+    public function go()
+    {
+        $this->start();
+    }
+
+    public function start()
+    {
+        $this->enabled = true;
+
+    }
 }

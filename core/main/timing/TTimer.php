@@ -1,6 +1,7 @@
 <?
 
 
-class TTimer extends TControl{
+class TTimer extends TControl
+{
     public $class_name = __CLASS__;
 }
