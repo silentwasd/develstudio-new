@@ -136,7 +136,10 @@ include_lib('main','timing/TTimer');
 include_lib('main','timing/TTimerEx');
 include_lib('main','timing/Timer');
 
+/* Threading */
 include_lib('main','threading');
+include_lib('main','threading/TThread');
+
 include_lib('main','buttons');
 include_lib('main','additional');
 include_lib('main','menus');
