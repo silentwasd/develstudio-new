@@ -217,7 +217,10 @@ include_lib('main','keyboard/HotKey');
 include_lib('main','localization');
 include_lib('main','localization/Localization');
 
+/* OS Api */
 include_lib('main','osapi');
+include_lib('main','osapi/DynLib');
+
 include_lib('main','utils');
 include_lib('main','skins');
 
