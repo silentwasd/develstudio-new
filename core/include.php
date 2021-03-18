@@ -114,7 +114,22 @@ include_lib('main','dialogs/TPageSetupDialog');
 include_lib('main','dialogs/TFindDialog');
 include_lib('main','dialogs/TReplaceDialog');
 
+/* Standard */
 include_lib('main','standart');
+include_lib('main','standart/TLabel');
+include_lib('main','standart/TEdit');
+include_lib('main','standart/TMemo');
+include_lib('main','standart/TRichEdit');
+include_lib('main','standart/TCheckBox');
+include_lib('main','standart/TRadioButton');
+include_lib('main','standart/TListBox');
+include_lib('main','standart/TComboBox');
+include_lib('main','standart/TProgressBar');
+include_lib('main','standart/TScrollBar');
+include_lib('main','standart/TGroupBox');
+include_lib('main','standart/TRadioGroup');
+include_lib('main','standart/TPanel');
+
 include_lib('main','timing');
 include_lib('main','threading');
 include_lib('main','buttons');
