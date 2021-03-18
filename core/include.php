@@ -201,7 +201,10 @@ include_lib('main','web/TChromiumOptions');
 include_lib('main','web/TChromium');
 include_lib('main','web/TWebBrowser');
 
+/* Grids */
 include_lib('main','grids');
+include_lib('main','grids/TStringGrid');
+
 include_lib('main','registry');
 
 include_lib('main','keyboard');
