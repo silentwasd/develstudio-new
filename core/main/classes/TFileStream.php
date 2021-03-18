@@ -1,9 +1,11 @@
 <?
 
 
-class TFileStream extends TStream{
+class TFileStream extends TStream
+{
 
-    function __construct($filename, $mode){
+    function __construct($filename, $mode)
+    {
         $this->self = tfilestream_create($filename, $mode);
     }
 }

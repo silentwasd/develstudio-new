@@ -10,6 +10,11 @@ class TObject extends _Object
     /** @var int Идентификатор. */
     public $self;
 
+    function __construct($init = true)
+    {
+        $this->self = component_create(__CLASS__, nil);
+    }
+
     function get_className()
     {
         return rtii_class($this->self);
@@ -17,30 +22,16 @@ class TObject extends _Object
 
     function isClass($class)
     {
-        if (is_array($class)){
+        if (is_array($class)) {
             $s_class = strtolower($this->className);
             foreach ($class as $el)
-                if (strtolower($el)==$s_class)
+                if (strtolower($el) == $s_class)
                     return true;
             return false;
         } else {
             $class = strtolower($class);
-            return $class==strtolower($this->className);
+            return $class == strtolower($this->className);
         }
-    }
-
-    function __construct($init = true)
-    {
-        $this->self = component_create(__CLASS__,nil);
-    }
-
-    function free()
-    {
-        if (class_exists('animate'))
-            animate::objectFree($this->self);
-
-        gui_destroy($this->self);
-        //obj_free($this->self);
     }
 
     function safeFree()
@@ -54,5 +45,14 @@ class TObject extends _Object
     function destroy()
     {
         $this->free();
+    }
+
+    function free()
+    {
+        if (class_exists('animate'))
+            animate::objectFree($this->self);
+
+        gui_destroy($this->self);
+        //obj_free($this->self);
     }
 }
