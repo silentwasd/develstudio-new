@@ -248,9 +248,13 @@ include_lib('main','skins/TsProgressBar');
 include_lib('main','skins/TsTrackBar');
 include_lib('main','skins/TsBevel');
 
+/* Files */
 include_lib('files','file');
 include_lib('files','ini');
-include_lib('files','ini_ex');
+include_lib('files','ini/__ini');
+include_lib('files','ini/TIniFile');
+include_lib('files','ini/TConfigIni');
+include_lib('files','TIniFileEx');
 
 include_lib('design','sizecontrol');
 include_lib('design','propcomponents');
