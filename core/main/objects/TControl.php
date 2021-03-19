@@ -3,14 +3,31 @@
 
 /**
  * TControl is visual component
+ * @property object|null $parent Объект-родитель.
+ * @property int $owner Идентификатор владельца.
+ * @property-read int $componentIndex Индекс компонента.
+ * @property-read TComponent[] $componentList Список компонентов.
+ * @property-read TControl[] $controlList Список управляемых компонентов.
+ * @property-read int[] $componentLinks Список ссылок на компоненты.
+ * @property-read int $handle Идентификатор обработчика.
+ * @property-read TFont $font Шрифт.
+ * @property string $fontName Название шрифта.
+ * @property int $fontSize Размер шрифта.
+ * @property int $fontColor Цвет шрифта.
+ * @property bool $doubleBuffer Двойная буферизация.
+ * @property-read bool $focused Установлен ли фокус на объекте.
+ * @property string $text Текст.
+ * @property-write TPopupMenu $popupMenu Всплывающее меню.
+ * @property-read int $dockOrientation
+ * @property-read array $dockList
+ * @property-read int $dockClientCount
+ * @property-read TControlCanvas|null $canvas Холст.
+ * @property-read string $hint Подсказка.
  */
 class TControl extends TComponent
 {
-
     public $class_name = __CLASS__;
     protected $_font;
-
-    #public $avisible;
 
     function __construct($owner = nil, $init = true, $self = nil)
     {
@@ -27,7 +44,6 @@ class TControl extends TComponent
 
     function get_font()
     {
-
         if (!isset($this->_font)) {
             $this->_font = new TFont;
             $this->_font->self = $this->self;
@@ -38,7 +54,6 @@ class TControl extends TComponent
 
     function set_parent($obj)
     {
-
         if (is_object($obj))
             cntr_parent($this->self, $obj->self);
         elseif (is_numeric($obj))
@@ -52,7 +67,6 @@ class TControl extends TComponent
 
     function parentComponents()
     {
-
         $result = array();
         $components = $this->controlList;
 
@@ -70,7 +84,6 @@ class TControl extends TComponent
     // возвращает список всех компонентов объекта по паренту, а не owner'y
     function childComponents($recursive = true)
     {
-
         $result = array();
         $owner = c($this->get_owner());
         $links = $owner->get_componentLinks();
@@ -116,6 +129,10 @@ class TControl extends TComponent
         return component_index($this->self);
     }
 
+    /**
+     * @deprecated Функция control_index() не существует.
+     * @return mixed
+     */
     function get_controlIndex()
     {
         return control_index($this->self);
@@ -224,7 +241,6 @@ class TControl extends TComponent
 
     function setDate()
     {
-
         if ($this->exists_prop('caption'))
             $this->caption = date('Y.m.d');
         elseif ($this->exists_prop('text'))
@@ -233,7 +249,6 @@ class TControl extends TComponent
 
     function setTime()
     {
-
         if ($this->exists_prop('caption'))
             $this->caption = date('H:i:s');
         elseif ($this->exists_prop('text'))
@@ -277,7 +292,6 @@ class TControl extends TComponent
 
     function setFocus()
     {
-
         if ($this->visible && $this->enabled)
             gui_setFocus($this->self);
     }
@@ -314,7 +328,6 @@ class TControl extends TComponent
 
     function perform($msg, $hparam, $lparam)
     {
-
         return control_perform($this->self, $msg, $hparam, $lparam);
     }
 
@@ -325,19 +338,16 @@ class TControl extends TComponent
 
     function manualDock($obj, $align = 0)
     {
-
         return control_manualDock($this->self, $obj->self, $align);
     }
 
     function manualFloat($left, $top, $right, $bottom)
     {
-
         return control_manualFloat($this->self, $left, $top, $right, $bottom);
     }
 
     function dock($obj, $left, $top, $right, $bottom)
     {
-
         control_dock($this->self, $obj->self, $left, $top, $right, $bottom);
     }
 
@@ -348,20 +358,16 @@ class TControl extends TComponent
 
     function dockSaveToFile($file)
     {
-
         control_docksave($this->self, $file);
     }
 
-
     function dockLoadFromFile($file)
     {
-
         control_dockload($this->self, $file);
     }
 
     function get_dockList()
     {
-
         $result = array();
         $c = $this->get_dockClientCount();
 
@@ -378,19 +384,16 @@ class TControl extends TComponent
 
     function dockClient($index)
     {
-
         return _c(control_dockClient($this->self, $index));
     }
 
     function get_canvas()
     {
-
         return _c(component_canvas($this->self));
     }
 
     function set_hint($hint)
     {
-
         $this->showHint = (bool)$hint;
         $this->set_prop('hint', (string)$hint);
     }

@@ -93,6 +93,7 @@ include_lib('main','graphics');
 include_lib('main','graphics/TPoint');
 include_lib('main','graphics/TRect');
 include_lib('main','graphics/TPen');
+include_lib('main','graphics/TBrush');
 include_lib('main','graphics/TCanvas');
 include_lib('main','graphics/TCanvasFont');
 include_lib('main','graphics/TControlCanvas');
