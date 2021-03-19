@@ -1,83 +1,91 @@
 <?
 
 
+/**
+ * Class TFont
+ * @property string $name
+ * @property int $size
+ * @property int $color
+ * @property int $charset
+ * @property string[] $style
+ */
 class TFont extends _Object
 {
-
+    /** @var int */
     public $self;
 
-    function set_name($name)
+    public function assign($font)
     {
-        font_prop($this->self, 'name', $name);
+        font_assign($this->self, $font->self);
     }
 
-    function set_size($size)
+    protected function prop($prop)
     {
-        font_prop($this->self, 'size', $size);
+        return gui_propGet(gui_propGet($this->self, 'Font'), $prop);
     }
 
-    function set_color($color)
+    protected function propSet($prop, $value)
     {
-        font_prop($this->self, 'color', $color);
+        if (is_array($value))
+            $value = implode(',', $value);
+
+        font_prop($this->self, $prop, $value);
     }
 
-    function set_charset($charset)
+    protected function set_name($name)
     {
-        font_prop($this->self, 'charset', $charset);
+        $this->propSet('name', $name);
     }
 
-    function set_style($style)
+    protected function set_size($size)
     {
-
-        if (is_array($style)) $style = implode(',', $style);
-        font_prop($this->self, 'style', $style);
+        $this->propSet('size', $size);
     }
 
-    function get_name()
+    protected function set_color($color)
+    {
+        $this->propSet('color', $color);
+    }
+
+    protected function set_charset($charset)
+    {
+        $this->propSet('charset', $charset);
+    }
+
+    protected function set_style($style)
+    {
+        if (is_array($style))
+            $style = implode(',', $style);
+
+        $this->propSet('style', $style);
+    }
+
+    protected function get_name()
     {
         return $this->prop('name');
     }
 
-    function prop($prop)
-    {
-
-        return gui_propGet(gui_propGet($this->self, 'Font'), $prop);
-    }
-
-    function get_color()
+    protected function get_color()
     {
         return $this->prop('color');
     }
 
-    function get_size()
+    protected function get_size()
     {
         return $this->prop('size');
     }
 
-    function get_charset()
+    protected function get_charset()
     {
         return $this->prop('charset');
     }
 
-    function get_style()
+    protected function get_style()
     {
-
         $result = $this->prop('style');
         $result = explode(',', $result);
         foreach ($result as $x => $e)
             $result[$x] = trim($e);
         return $result;
-    }
-
-    function assign($font)
-    {
-        if ($font instanceof TRealFont) {
-            $this->name = $font->name;
-            $this->size = $font->size;
-            $this->color = $font->color;
-            $this->charset = $font->charset;
-            $this->style = $font->style;
-        } else
-            font_assign($this->self, $font->self);
     }
 }
