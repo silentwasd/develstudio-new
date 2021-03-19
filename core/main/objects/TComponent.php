@@ -3,15 +3,21 @@
 
 /**
  * Class TComponent
+ * @property bool $visible
+ * @property bool $enabled
+ * @property int $left
+ * @property int $top
+ * @property int $width
+ * @property int $height
+ * @property int $x
+ * @property int $y
+ * @property int $w
+ * @property int $h
  */
 class TComponent extends TObject
 {
-
-    #public hekpKeyword // здесь храняться все нестандартные свойства
-
-    function __construct($owner = nil, $init = true, $self = nil)
+    public function __construct($owner = nil, $init = true, $self = nil)
     {
-
         if ($init) {
             $this->self = obj_create($this->class_name, $owner);
         }
@@ -19,37 +25,23 @@ class TComponent extends TObject
         if ($self != nil)
             $this->self = $self;
 
-
         $this->__setAllPropEx($init);
     }
 
-    function __setAllPropEx($init = true)
+    public function create($form = null)
     {
+        $form = $form == null ? $this->owner : null;
+        
+        if (is_object($form))
+            $form = $form->self;
 
-        if ($init)
-            $this->__setClass();
+        return component_copy($this->self, $form);
     }
 
-    function __setClass()
+    function __initComponentInfo()
     {
-        $class = $this->class_name_ex ? $this->class_name_ex : $this->class_name;
-
-        $result = uni_unserialize($this->getHelpKeyword());
-
-        //if (function_exists('msg')) pre($result);
-        $this->helpKeyword = uni_serialize(
-            array('CLASS' => $class,
-                'PARAMS' => $result['PARAMS'],
-            ));
-    }
-
-    // доп инфа для нестандартных свойств
-
-    static function __getPropExArray($self)
-    {
-
-        $result = uni_unserialize(control_helpkeyword($self, null));
-        return $result['PARAMS'];
+        $this->visible = $this->avisible;
+        $this->enabled = $this->aenabled;
     }
 
     function valid()
@@ -57,115 +49,163 @@ class TComponent extends TObject
         return true;
     }
 
-    // достаем свойство...
-
-    function __setAllPropX()
+    public function __get($nm)
     {
-        $result = uni_unserialize($this->getHelpKeyword());
-
-        foreach ((array)$result['PARAMS'] as $prop => $value) {
-
-            $this->props[strtolower($prop)] = $value;
-            $this->$prop = $value;
-        }
-    }
-
-    function getHelpKeyword()
-    {
-
-        return control_helpkeyword($this->self, null);
-    }
-
-    function __initComponentInfo()
-    {
-
-        $this->visible = $this->avisible;
-        $this->enabled = $this->aenabled;
-    }
-
-    function __get($nm)
-    {
-
         $nm = strtolower($nm);
         $res = parent::__get($nm);
 
-        if (!method_exists($this, 'get_' . $nm))
-            if ($this->class_name != 'TScreenEx' && $this->class_name != 'TPen' && $this->class_name != 'TImageList') {
+        $ignore = array('TScreenEx', 'TPen', 'TImageList');
+        if (!method_exists($this, $this->getterPrefixedA($nm)) && !in_array($this->class_name, $ignore)) {
+            if ($this->controlGetter($nm, $result))
+                return $result;
+        }
 
-                if ($nm == 'visible') {
-                    return control_visible($this->self, null);
-                } elseif ($nm == 'left') {
-                    return control_x($this->self, null);
-                } elseif ($nm == 'top') {
-                    return control_y($this->self, null);
-                } elseif ($nm == 'width') {
-                    return control_w($this->self, null);
-                } elseif ($nm == 'height') {
-                    return control_h($this->self, null);
-                }
-            }
-
-        if (is_int($res) && ($res == -908067676)) {
-
+        if (is_int($res) && ($res == OBJECT_PROPERTY_NOT_FOUND)) {
             $result = $this->__getPropEx($nm);
             if ($result === NULL)
                 return $this->get_prop($nm);
             else
                 return $result;
-        } else
-            return $res;
+        }
+
+        return $res;
     }
 
-    function __set($nm, $val)
+    public function __set($nm, $val)
     {
-
         $nm = strtolower($nm);
 
-        if (!method_exists($this, 'set_' . $nm))
-            if ($this->class_name != 'TWebBrowser' && $this->class_name != 'TScreenEx' && $this->class_name != 'TPen' && $this->class_name != 'TImageList') {
-
-                if ($nm == 'visible') {
-                    return control_visible($this->self, $val);
-                } elseif ($nm == 'left') {
-                    return control_x($this->self, $val);
-                } elseif ($nm == 'top') {
-                    return control_y($this->self, $val);
-                } elseif ($nm == 'width') {
-                    return control_w($this->self, $val);
-                } elseif ($nm == 'height') {
-                    return control_h($this->self, $val);
-                }
-            }
+        $ignore = array('TWebBrowser', 'TScreenEx', 'TPen', 'TImageList');
+        if (!method_exists($this, $this->setterPrefixedA($nm)) && !in_array($this->class_name, $ignore)) {
+            if ($this->controlSetter($nm, $val))
+                return;
+        }
 
         if (strtolower(substr($nm, 0, 2)) == 'on') {
-            //if ( !method_exists($this, 'set_'.$nm) ){
             $result = set_event($this->self, $nm, $val);
-            if (method_exists($this, 'set_' . $nm)) {
-                $method = 'set_' . $nm;
+
+            if (method_exists($this, $this->setterPrefixedA($nm))) {
+                $method = $this->setterPrefixedA($nm);
                 $this->$method($val);
             }
-            if ($result) return;
+
+            if ($result)
+                return;
         }
 
         if (!$this->exists_prop($nm)) {
-
             $this->__addPropEx($nm, $val);
             parent::__set($nm, $val);
         } else {
-            $s = 'set_' . $nm;
-            if (method_exists($this, 'set_' . $nm))
+            $s = $this->setterPrefixedA($nm);
+            if (method_exists($this, $s))
                 $this->$s($val);
             else
                 $this->set_prop($nm, $val);
         }
     }
+    
+    protected function controlGetter($property, &$result)
+    {
+        switch ($property) {
+            case 'visible':
+                $result = control_visible($this->self, null);
+                return true;
+            case 'left':
+                $result = control_x($this->self, null);
+                return true;
+            case 'top':
+                $result = control_y($this->self, null);
+                return true;
+            case 'width':
+                $result = control_w($this->self, null);
+                return true;
+            case 'height':
+                $result = control_h($this->self, null);
+                return true;
+        }
 
-    function exists_prop($prop)
+        return false;
+    }
+    
+    protected function controlSetter($property, $value)
+    {
+        switch ($property) {
+            case 'visible':
+                control_visible($this->self, $value);
+                return true;
+            case 'left':
+                control_x($this->self, $value);
+                return true;
+            case 'top':
+                control_y($this->self, $value);
+                return true;
+            case 'width':
+                control_w($this->self, $value);
+                return true;
+            case 'height':
+                control_h($this->self, $value);
+                return true;
+        }
+
+        return false;
+    }
+
+    protected function exists_prop($prop)
     {
         return rtii_exists($this, $prop);
     }
 
-    function __addPropEx($nm, $val)
+    /**
+     * Установить значение свойства.
+     * @param string $prop Название свойства.
+     * @param mixed $val Значение.
+     */
+    protected function set_prop($prop, $val)
+    {
+        rtii_set($this, $prop, $val);
+    }
+
+    /**
+     * Получить значение свойства.
+     * @param string $prop Название свойства.
+     * @return mixed Значение.
+     */
+    protected function get_prop($prop)
+    {
+        $result = rtii_get($this, $prop);
+
+        if ($result === 'True')
+            return true;
+
+        if ($result === 'False')
+            return false;
+
+        return $result;
+    }
+
+    protected function getHelpKeyword()
+    {
+        return control_helpkeyword($this->self, null);
+    }
+    
+    protected function setHelpKeyword($v)
+    {
+        control_helpkeyword($this->self, $v);
+    }
+
+    /**
+     * Получить значение дополнительного свойства.
+     * @param string $nm Название свойства.
+     * @return mixed Значение.
+     */
+    protected function __getPropEx($nm)
+    {
+        $result = uni_unserialize(control_helpkeyword($this->self, null));
+        return $result['PARAMS'][strtolower($nm)];
+    }
+    
+    protected function __addPropEx($nm, $val)
     {
 
         $class = $this->class_name_ex ? $this->class_name_ex : $this->class_name;
@@ -186,82 +226,86 @@ class TComponent extends TObject
         );
     }
 
-    function setHelpKeyword($v)
+    // достаем свойство...
+    protected function __setAllPropX()
     {
-        control_helpkeyword($this->self, $v);
+        $result = uni_unserialize($this->getHelpKeyword());
+
+        foreach ((array)$result['PARAMS'] as $prop => $value) {
+
+            $this->props[strtolower($prop)] = $value;
+            $this->$prop = $value;
+        }
     }
 
-    function set_prop($prop, $val)
+    /**
+     * Получить массив дополнительных свойств.
+     * @param int $self
+     * @return mixed
+     */
+    public static function __getPropExArray($self)
     {
-        rtii_set($this, $prop, $val);
+        $result = uni_unserialize(control_helpkeyword($self, null));
+        return $result['PARAMS'];
     }
 
-    function __getPropEx($nm)
+    protected function __setAllPropEx($init = true)
     {
-
-        $result = uni_unserialize(control_helpkeyword($this->self, null));
-        return $result['PARAMS'][strtolower($nm)];
+        if ($init)
+            $this->__setClass();
     }
 
-    function get_prop($prop)
+    protected function __setClass()
     {
-        $result = rtii_get($this, $prop);
-
-        if ($result === 'True') $result = true;
-        elseif ($result === 'False') $result = false;
-
-        return $result;
+        $class = $this->class_name_ex ? $this->class_name_ex : $this->class_name;
+        $result = uni_unserialize($this->getHelpKeyword());
+        $this->helpKeyword = uni_serialize(
+            array(
+                'CLASS' => $class,
+                'PARAMS' => $result['PARAMS']
+            )
+        );
     }
 
-    function get_x()
+    protected function get_x()
     {
         return $this->left;
     }
 
-    function set_x($v)
-    {
-        $this->left = (int)$v;
-    }
-
-    function get_y()
+    protected function get_y()
     {
         return $this->top;
     }
 
-    function set_y($v)
-    {
-        $this->top = (int)$v;
-    }
-
-    function get_w()
+    protected function get_w()
     {
         return $this->width;
     }
 
-    function set_w($v)
+    protected function get_h()
+    {
+        return $this->height;
+    }
+
+    protected function set_x($v)
+    {
+        $this->left = (int)$v;
+    }
+
+    protected function set_y($v)
+    {
+        $this->top = (int)$v;
+    }
+
+    protected function set_w($v)
     {
 
         $this->width = (int)$v;
     }
 
-    function get_h()
-    {
-        return $this->height;
-    }
-
-    function set_h($v)
+    protected function set_h($v)
     {
 
         $this->height = (int)$v;
-    }
-
-    function create($form = null)
-    {
-
-        $form = $form == null ? $this->owner : $form;
-        if (is_object($form))
-            $form = $form->self;
-
-        return component_copy($this->self, $form);
     }
 }

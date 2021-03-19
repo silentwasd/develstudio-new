@@ -40,22 +40,22 @@ class _Object
         $this->setterMethod($nm, $val);
     }
 
-    private function getterPrefixedA($property)
+    protected function getterPrefixedA($property)
     {
         return 'get_'.$property;
     }
 
-    private function getterPrefixedB($property)
+    protected function getterPrefixedB($property)
     {
         return 'getx_'.$property;
     }
 
-    private function setterPrefixedA($property)
+    protected function setterPrefixedA($property)
     {
         return 'set_'.$property;
     }
 
-    private function setterPrefixedB($property)
+    protected function setterPrefixedB($property)
     {
         return 'setx_'.$property;
     }
