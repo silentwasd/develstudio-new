@@ -249,8 +249,8 @@ class myCompile
         $obj = new COM("winmgmts://localhost/root/CIMV2");
         $wmi = $obj->ExecQuery("SELECT * FROM Win32_ComputerSystemProduct");
 
-        foreach ($wmi as $objj ) {
-            $uid = $UUID;
+        foreach ($wmi as $objj) {
+            $uid = $objj->uuid;
         }
 
         $uid = strtoupper(md5(self::getVersion() . $uid . "DS3"));
@@ -488,12 +488,11 @@ class myCompile
 
         if (file_exists($p_dir . "php5ts.dll")) {
             while (!unlink($p_dir . "php5ts.dll")) {
-            }
+                $m += 1;
 
-            $m += 1;
-
-            if (30 < $m) {
-                break;
+                if (30 < $m) {
+                    break;
+                }
             }
         }
 
