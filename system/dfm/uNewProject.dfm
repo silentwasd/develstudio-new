@@ -1,11 +1,10 @@
-object fmNewProject: TForm
+object fmNewProject: TfmNewProject
   Left = 10
   Top = 10
   HelpType = htKeyword
   HelpKeyword =
     'AAAAAhQCEQVDTEFTUxEFVEZvcm0RBlBBUkFNUxQFEQhhdmlzaWJsZQURAXgGChEB' +
     'eQYKEQF3CAKgEQFoCAG4'
-  BorderIcons = []
   BorderStyle = bsDialog
   Caption = '{New Project}'
   ClientHeight = 440
