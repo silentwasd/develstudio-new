@@ -198,10 +198,10 @@ if (!defined('IS_APPLICATION_START')) {
     }
 
     define('IS_APPLICATION_START', true);
-    $time = round(microtime(true) - $tt, 4);
-    myCompile::setStatus('Студия', 'Запуск за ' . $time . ' с');
 
     if (!EMULATE_DVS_EXE) {
+        $time = round(microtime(true) - $tt, 4);
+        myCompile::setStatus('Студия', 'Запуск за ' . $time . ' с');
 
         global $_PARAMS;
         if ($GLOBALS['dsg_cfg']->newProjectDialog->startup && !file_exists($_PARAMS[2]))
