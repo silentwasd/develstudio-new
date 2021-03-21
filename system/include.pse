@@ -43,16 +43,15 @@ if (!defined('IS_APPLICATION_START')) {
     if (!EMULATE_DVS_EXE) {
         $APPLICATION->title = 'DevelStudio 2012';
 
-        $fmLogoin = TForm::loadFromFile('dfm\\uLogoin');
+        $fmLogoin = TForm::loadFromFile('dfm\\uLogoin'); // Окно загрузчика
 
         c('fmLogoin->Label7')->caption = 'version ' . DV_VERSION;
         c('fmLogoin->Label8')->caption = '... ' . DV_PREFIX;
 
-
         $fmLogoin->show();
 
         $GLOBALS['APPLICATION']->processMessages();
-        $fmMain = TForm::loadFromFile('dfm\uMain', true);
+        $fmMain = TForm::loadFromFile('dfm\uMain', true); // Главное окно
 
         $fmMain->position = 'poScreenCenter';
         $fmMain->windowState = 'wsMaximized';
@@ -60,59 +59,50 @@ if (!defined('IS_APPLICATION_START')) {
         setMainForm($fmMain);
         $APPLICATION->mainFormOnTaskBar = true;
 
-
         c('fmLogoin->label2')->show();
 
         $GLOBALS['APPLICATION']->processMessages();
 
-        $fmEdit = TForm::loadFromFile('dfm\\uEdit');
+        $fmEdit = TForm::loadFromFile('dfm\\uEdit'); // Окно редактирования формы
 
         c_Alias('fmMain->listObjs', 'fmObjectInspector->list');
         c_Alias('fmMain', 'fmComponents');
         c_Alias('fmMain', 'fmObjectInspector');
         c_Alias('fmMain', 'fmPropsAndEvents');
 
-        //$fmComponents = TForm::loadFromFile('dfm\\uComponents',true);
-        //$fmPropEvent  = TForm::loadFromFile('dfm\\uPropsAndEvents', true);
-
     }
 
     if (!EMULATE_DVS_EXE) {
-        // диалоги..
-        TForm::loadFromFile('dfm\uedt_Text');
-        TForm::loadFromFile('dfm\uedt_EventTypes');
-        TForm::loadFromFile('dfm\uInputText');
+        /* Отдельные окна */
+        TForm::loadFromFile('dfm\uNewProject', true); // Новый проект
+        TForm::loadFromFile('dfm\uAbout', true); // О программе
+        TForm::loadFromFile('dfm\uInspect', true); // Инспектор значений
+        TForm::loadFromFile('dfm\uFindError', true); // Поиск ошибок
 
-        TForm::loadFromFile('dfm\uFindDialog', true);
-        TForm::loadFromFile('dfm\uRunDebug', true);
-        TForm::loadFromFile('dfm\uInspect', true);
-        TForm::loadFromFile('dfm\uRegistration', true);
+        /* Окно "Свойства и события" */
+        TForm::loadFromFile('dfm\uedt_EventTypes'); // Всплывающее меню со списком событий.
+        TForm::loadFromFile('dfm\uedt_Text'); // Редактор текстовых значений.
+        TForm::loadFromFile('dfm\uFormProperties'); // Свойства формы.
+        TForm::loadFromFile('dfm\uImageView'); // Просмотр изображений.
+        TForm::loadFromFile('dfm\uMenuEditor', true); // Редактор меню.
+        TForm::loadFromFile('dfm\uSizesPosition'); // Размеры и позиция.
 
-        TForm::loadFromFile('dfm\uPHPEditor', true);
-        TForm::loadFromFile('dfm\uPHPEditor', true);
-        TForm::loadFromFile('dfm\uMSBCreator', true);
-        TForm::loadFromFile('dfm\uSynSettings', true);
-        TForm::loadFromFile('dfm\uFormList');
-        TForm::loadFromFile('dfm\uImageView');
-        TForm::loadFromFile('dfm\uNewProject', true);
-        TForm::loadFromFile('dfm\uMenuEditor', true);
+        /* Окно "Редактор PHP кода" */
+        TForm::loadFromFile('dfm\uPHPEditor', true); // Само окно
+        TForm::loadFromFile('dfm\uMSBCreator', true); // Мастер кода
+        TForm::loadFromFile('dfm\uSynSettings', true); // Настройки подсветки синтаксиса
+        TForm::loadFromFile('dfm\uEasySelectDialog', true); // Диалог простого выбора
 
+        /* Запуск программы и управление формами */
+        TForm::loadFromFile('dfm\uRunDebug', true); // Окно отладки при запуске в отладочном режиме
+        TForm::loadFromFile('dfm\uInputText'); // Окно ввода текста с меткой (новая форма, переименовать форму...)
 
-        TForm::loadFromFile('dfm\uFormProperties');
-        TForm::loadFromFile('dfm\uPHPModules');
-        TForm::loadFromFile('dfm\uBuildProgram');
-        TForm::loadFromFile('dfm\uBuildCompleted', true);
-        TForm::loadFromFile('dfm\uOptionBuild', true);
-
-        TForm::loadFromFile('dfm\uOptions');
-        TForm::loadFromFile('dfm\uSizesPosition');
-
-        TForm::loadFromFile('dfm\uEasySelectDialog', true);
-
-        TForm::loadFromFile('dfm\uFindError', true);
-        TForm::loadFromFile('dfm\uAbout', true);
-
-        //$fmObjInspect = TForm::loadFromFile('dfm\uObjectInspector', true);
+        /* Сборка, настройка проекта и студии */
+        TForm::loadFromFile('dfm\uPHPModules'); // Выбор PHP модулей
+        TForm::loadFromFile('dfm\uBuildProgram'); // Сборка программы
+        TForm::loadFromFile('dfm\uBuildCompleted', true); // Окно успешной сборки
+        TForm::loadFromFile('dfm\uOptionBuild', true); // Настройки проекта
+        TForm::loadFromFile('dfm\uOptions'); // Настройки студии
     }
 
     if (!EMULATE_DVS_EXE) {
